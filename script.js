@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 product_item.classList.add("product-item")
                 product_item.setAttribute("data-id", product.id)
                 product_item.innerHTML = `
-                    <img src="${product.image}" class="product-img" width="250" height="250"/>
-                    <h2>${product.name}</h2>
+                    <img onclick="buy_now('${product.id}')" src="${product.image}" class="product-img" width="250" height="250"/>
+                    <h2 onclick="buy_now('${product.id}')">${product.name}</h2>
                     <h3>R$ ${product.price}</h3>
                     <div class="btn-container">
                     <button onclick="add_to_cart('${product.id}')">Add ao Carrinho</button>

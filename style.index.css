@@ -21,7 +21,13 @@ button:hover {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
+.product-item h2:hover {
+    cursor: pointer;
+}
 .product-img {
     width: 100%;
     height: auto;
+}
+.product-img:hover {
+    cursor: pointer;
 }
