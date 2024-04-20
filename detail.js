@@ -30,3 +30,35 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error(err))
 })
+
+
+function add_to_cart(id) {
+    // alert(`Produto ${id} adicionado ao carrinho!`)    
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]")
+    let cart_size = cart.length
+    let cart_html = document.querySelector("#cart")
+
+    if (!cart.includes(id)) {
+        cart_html.innerHTML = `<a href="cart.html"><b>Carrinho</b>: ${++cart_size}</a>`
+        cart.push(id)
+        localStorage.setItem("cart", JSON.stringify(cart))
+    } else {
+        alert("Você já adicionou esse produto ao carrinho!")
+    }
+}
+
+
+function buy_now(id) {
+    // alert(`Redirect produto ${id} pra pagina de checkout!`)
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]")
+    let cart_size = cart.length
+    let cart_html = document.querySelector("#cart")
+
+    if (!cart.includes(id)) {
+        cart_html.innerHTML = `<a href="cart.html"><b>Carrinho</b>: ${++cart_size}</a>`
+        cart.push(id)
+        localStorage.setItem("cart", JSON.stringify(cart))
+    }
+
+    window.location.href = "checkout.html"
+}
