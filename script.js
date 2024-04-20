@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h2>${product.name}</h2>
                     <button>Add ao Carrinho</button>
                 `
+                
+                product_list.appendChild(product_item)
             })
-
-            product_list.appendChild(product_item)
         })
         .catch(err => console.error(err))
 })
