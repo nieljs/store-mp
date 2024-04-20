@@ -31,10 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function add_to_cart(id) {
     // alert(`Produto ${id} adicionado ao carrinho!`)
-    let cart = localStorage.getItem("cart")
+    let cart = localStorage.getItem("cart") || 0
     let cart_html = document.querySelector("#cart")
 
     cart_html.innerHTML = `<b>carrinho</b>: ${cart++}`
+    localStorage.setItem("cart", cart)
 }
 
 function buy_now(id) {
