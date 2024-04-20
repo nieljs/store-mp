@@ -7,7 +7,12 @@ async function checkout_product() {
 
     console.log("Products: ", products)
 
-    document.querySelector("#cart").innerHTML = `<div>${product.name}</div><br><br><button>Comprar</button>`
+    document.querySelector("#cart").innerHTML = `
+        <img src="${product.image}" class="product-img" width="250" height="250"/>
+        <h2>${product.name}</h2>
+        <h4>R$ ${product.price}</h4>    
+    `
+        // <div>${product.name}</div><br><br><button>Comprar</button>
 }
 
 checkout_product()
