@@ -55,10 +55,10 @@ function buy_now(id) {
     let cart_html = document.querySelector("#cart")
 
     if (!cart.includes(id)) {
-        cart_html.innerHTML = `<a href="cart.html"><b>Carrinho</b>: ${++cart_size}</a>`
         cart.push(id)
         localStorage.setItem("cart", JSON.stringify(cart))
+        cart_html.innerHTML = `<a href="cart.html"><b>Carrinho</b>: ${++cart_size}</a>`
     }
 
-    window.location.href = "checkout.html"
+    window.location.href = `checkout.html?id=${id}`
 }
