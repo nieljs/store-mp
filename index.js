@@ -18,10 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img onclick="go_to_detail('${product.id}')" src="${product.image}" class="product-img" width="250" height="250"/>
                     <h2 onclick="go_to_detail('${product.id}')">${product.name}</h2>
                     <h4>R$ ${product.price}</h4>
-                    <div class="btn-container">
-                    <button onclick="add_to_cart('${product.id}')">Add ao Carrinho</button>
-                    <button onclick="buy_now('${product.id}')">Compre agora</button>
-                    </div>
                 `
 
                 product_list.appendChild(product_item)
