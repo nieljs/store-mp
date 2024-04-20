@@ -10,6 +10,9 @@ button:hover {
     color: #fff;
     cursor: pointer;
 }
+#cart:hover {
+    cursor: pointer;
+}
 .product-container {
     display: flex;
     flex-wrap: wrap;
