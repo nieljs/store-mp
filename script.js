@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let cart_html = document.querySelector("#cart")
             let product_list = document.querySelector("#product-list")
 
-            cart_html.innerHTML = `<i>Carrinho:</i> ${cart}`
+            cart_html.innerHTML = `<b>Carrinho:</b> ${cart}`
 
             products.forEach(product => {
                 let product_item = document.createElement("div")
@@ -30,7 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function add_to_cart(id) {
-    alert(`Produto ${id} adicionado ao carrinho!`)
+    // alert(`Produto ${id} adicionado ao carrinho!`)
+    let cart = localStorage.getItem("cart")
+    let cart_html = document.querySelector("#cart")
+
+    cart_html.innerHTML = `<b>carrinho</b>: ${cart++}`
 }
 
 function buy_now(id) {
