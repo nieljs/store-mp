@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 product_item.classList.add("product-item")
                 product_item.setAttribute("data-id", product.id)
                 product_item.innerHTML = `
-                    <img onclick="buy_now('${product.id}')" src="${product.image}" class="product-img" width="250" height="250"/>
-                    <h2 onclick="buy_now('${product.id}')">${product.name}</h2>
+                    <img onclick="go_to_detail('${product.id}')" src="${product.image}" class="product-img" width="250" height="250"/>
+                    <h2 onclick="go_to_detail('${product.id}')">${product.name}</h2>
                     <h4>R$ ${product.price}</h4>
                     <div class="btn-container">
                     <button onclick="add_to_cart('${product.id}')">Add ao Carrinho</button>
@@ -29,6 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error(err))
 })
+
+
+function go_to_detail(id) {
+    window.location.href = `detail.html?id=${id}`
+}
 
 
 function add_to_cart(id) {
