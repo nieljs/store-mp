@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 product_item.innerHTML = `
                     <img src="${product.image}" class="product-img" width="250" height="250"/>
                     <h2>${product.name}</h2>
-                    <button>Add ao Carrinho</button>
+                    <button onclick="add_to_cart(${product.id})">Add ao Carrinho</button>
                 `
                 
                 product_list.appendChild(product_item)
@@ -20,3 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(err => console.error(err))
 })
+
+function add_to_cart(id) {
+    alert(`Produto ${id} adicionado ao carrinho!`)
+}
