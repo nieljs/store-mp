@@ -2,11 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("products.json")
         .then(response => response.json())
         .then(products => {
-            let cart = localStorage.getItem("cart") || 0
+            let cart = JSON.parse(localStorage.getItem("cart") || "[]")
+            let cart_size = cart.length
             let cart_html = document.querySelector("#cart")
             let product_list = document.querySelector("#product-list")
 
-            cart_html.innerHTML = `<b>Carrinho:</b> ${cart}`
+            cart_html.innerHTML = `<span onclick="go_to_cart()"><b>Carrinho</b>: ${cart_size}</span>`
 
             products.forEach(product => {
                 let product_item = document.createElement("div")
@@ -22,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <button onclick="buy_now('${product.id}')">Compre agora</button>
                     </div>
                 `
-                
+
                 product_list.appendChild(product_item)
             })
         })
@@ -30,12 +31,28 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function add_to_cart(id) {
-    // alert(`Produto ${id} adicionado ao carrinho!`)
-    let cart = localStorage.getItem("cart") || 0
+    // alert(`Produto ${id} adicionado ao carrinho!`)    
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]")
+    let cart_size = cart.length
     let cart_html = document.querySelector("#cart")
 
-    cart_html.innerHTML = `<b>Carrinho</b>: ${++cart}`
-    localStorage.setItem("cart", cart)
+    if (!cart.includes(id)) {
+        cart_html.innerHTML = `<span onclick="go_to_cart()"><b>Carrinho</b>: ${++cart_size}</span>`
+        cart.push(id)
+        localStorage.setItem("cart", JSON.stringify(cart))
+    } else {
+        alert("Você já adicionou esse produto ao carrinho!")
+    }
+}
+
+async function go_to_cart() {
+    let data = await fetch("products.json")
+    let products = await data.json()
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]")
+    let cart_products = products.filter(id => cart.includes(id))
+
+    cart_products.forEach(product =>
+        document.body.innerHTML = `<div><b>Comprar:</b> ${product.name}</div>`)
 }
 
 function buy_now(id) {
