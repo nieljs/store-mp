@@ -2,7 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("products.json")
         .then(response => response.json())
         .then(products => {
+            let cart = localStorage.getItem("cart") || 0
+            let cart_html = document.querySelector("#cart")
             let product_list = document.querySelector("#product-list")
+
+            cart_html.innerHTML = `<i>Carrinho:</i> ${cart}`
 
             products.forEach(product => {
                 let product_item = document.createElement("div")
@@ -12,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 product_item.innerHTML = `
                     <img onclick="buy_now('${product.id}')" src="${product.image}" class="product-img" width="250" height="250"/>
                     <h2 onclick="buy_now('${product.id}')">${product.name}</h2>
-                    <h3>R$ ${product.price}</h3>
+                    <h4>R$ ${product.price}</h4>
                     <div class="btn-container">
                     <button onclick="add_to_cart('${product.id}')">Add ao Carrinho</button>
                     <button onclick="buy_now('${product.id}')">Compre agora</button>
