@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 product_item.classList.add("product-item")
                 product_item.innerHTML = `
-                    <img src="${product.image}" class="product-img" width="500" height="500"/>
+                    <img src="${product.image}" class="product-img" width="250" height="250"/>
                     <h2>${product.name}</h2>
                     <button>Add ao Carrinho</button>
                 `
