@@ -8,8 +8,12 @@ async function list_cart() {
     console.log("Cart: ", cart)
     console.log("Cart Products: ", cart_products)
 
+    let cart_list = ""
+
     cart_products.forEach(product =>
-        document.querySelector("#cart").innerHTML = `<div><b>Comprar:</b> ${product.name}</div>`)
+        cart_list += `<div><b>Comprar:</b> ${product.name}</div>`)
+
+    document.querySelector("#cart").innerHTML = cart_list
 }
 
 list_cart()
