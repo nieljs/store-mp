@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let cart_html = document.querySelector("#cart")
             let product_list = document.querySelector("#product-list")
 
-            cart_html.innerHTML = `<span onclick="go_to_cart()"><b>Carrinho</b>: ${cart_size}</span>`
+            cart_html.innerHTML = `<a href="cart.html"><b>Carrinho</b>: ${cart_size}</a>`
 
             products.forEach(product => {
                 let product_item = document.createElement("div")
@@ -37,7 +37,7 @@ function add_to_cart(id) {
     let cart_html = document.querySelector("#cart")
 
     if (!cart.includes(id)) {
-        cart_html.innerHTML = `<span onclick="go_to_cart()"><b>Carrinho</b>: ${++cart_size}</span>`
+        cart_html.innerHTML = `<a href="cart.html"><b>Carrinho</b>: ${++cart_size}</a>`
         cart.push(id)
         localStorage.setItem("cart", JSON.stringify(cart))
     } else {
@@ -46,17 +46,7 @@ function add_to_cart(id) {
 }
 
 async function go_to_cart() {
-    let data = await fetch("products.json")
-    let products = await data.json()
-    let cart = JSON.parse(localStorage.getItem("cart") || "[]")
-    let cart_products = products.filter(({ id }) => cart.includes(id))
-
-    console.log("Products: ", products)
-    console.log("Cart: ", cart)
-    console.log("Cart Products: ", cart_products)
-
-    cart_products.forEach(product =>
-        document.body.innerHTML = `<div><b>Comprar:</b> ${product.name}</div>`)
+    
 }
 
 function buy_now(id) {
