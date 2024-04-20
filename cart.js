@@ -11,7 +11,7 @@ async function list_cart() {
     let cart_list = ""
 
     cart_products.forEach(product =>
-        cart_list += `<div><b>Comprar:</b> ${product.name}</div>`)
+        cart_list += `<div>${product.name}</div>`)
 
     document.querySelector("#cart").innerHTML = cart_list
 }
