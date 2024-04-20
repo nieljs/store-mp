@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let cart_size = cart.length
             let cart_html = document.querySelector("#cart")
             let product_single = document.querySelector("#product-single")
-            let product = products.filter(({ id }) => id == product_id)
+            let product = products.filter(({ id }) => id == product_id)[0]
             let product_item = document.createElement("div")
 
             cart_html.innerHTML = `<a href="cart.html"><b>Carrinho</b>: ${cart_size}</a>`
@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
             product_item.classList.add("product-item")
             product_item.setAttribute("data-id", product.id)
             product_item.innerHTML = `
-                    <img onclick="go_to_detail('${product.id}')" src="${product.image}" class="product-img" width="250" height="250"/>
-                    <h2 onclick="go_to_detail('${product.id}')">${product.name}</h2>
+                    <img src="${product.image}" class="product-img" width="250" height="250"/>
+                    <h2>${product.name}</h2>
                     <h4>R$ ${product.price}</h4>
                     <div class="btn-container">
                     <button onclick="add_to_cart('${product.id}')">Add ao Carrinho</button>
