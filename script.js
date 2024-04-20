@@ -34,7 +34,7 @@ function add_to_cart(id) {
     let cart = localStorage.getItem("cart") || 0
     let cart_html = document.querySelector("#cart")
 
-    cart_html.innerHTML = `<b>carrinho</b>: ${cart++}`
+    cart_html.innerHTML = `<b>Carrinho</b>: ${++cart}`
     localStorage.setItem("cart", cart)
 }
 
