@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
             products.forEach(product => {
                 let product_item = document.createElement("div")
 
+                product_item.classList.add("product-item")
                 product_item.innerHTML = `
-                    <img src="${product.image}" width="500" height="500"/>
+                    <img src="${product.image}" class="product-img" width="500" height="500"/>
                     <h2>${product.name}</h2>
                     <button>Add ao Carrinho</button>
                 `
